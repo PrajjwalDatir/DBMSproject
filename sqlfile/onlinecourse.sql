@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct, 2020 at 06:31 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Nov 01, 2020 at 03:57 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `onlinecourse`
 --
-CREATE database onlinecourse;
-use onlinecourse;
 
 -- --------------------------------------------------------
 
@@ -30,12 +27,11 @@ use onlinecourse;
 -- Table structure for table `admin`
 --
 
-
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -58,18 +54,19 @@ CREATE TABLE `course` (
   `courseName` varchar(255) DEFAULT NULL,
   `courseUnit` varchar(255) DEFAULT NULL,
   `noofSeats` int(11) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` varchar(255) DEFAULT NULL
+  `creationDate` timestamp NULL DEFAULT current_timestamp(),
+  `updationDate` varchar(255) DEFAULT NULL,
+  `dept_id` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `courseCode`, `courseName`, `courseUnit`, `noofSeats`, `creationDate`, `updationDate`) VALUES
-(1, 'PHP01', 'Core PHP', '1-5', 10, '2017-02-11 17:39:10', '21-05-2018 03:33:37 PM'),
-(2, 'WP01', 'Wordpress', '1-6', 1, '2017-02-11 17:52:25', '12-02-2017 12:23:35 AM'),
-(4, 'MYSQL23', 'MYSQL', '1-8', 20, '2017-02-11 18:47:25', '25-08-2018 11:20:22 AM');
+INSERT INTO `course` (`id`, `courseCode`, `courseName`, `courseUnit`, `noofSeats`, `creationDate`, `updationDate`, `dept_id`) VALUES
+(6, 'c102', 'Hindi', '102', 80, '2020-10-26 04:14:09', NULL, 9),
+(7, 'c101', 'Eng', '101', 80, '2020-10-26 05:47:48', NULL, NULL),
+(13, 'c105', 'Marathi', '105', 90, '2020-11-01 09:18:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -86,7 +83,7 @@ CREATE TABLE `courseenrolls` (
   `level` int(11) DEFAULT NULL,
   `semester` int(11) DEFAULT NULL,
   `course` int(11) DEFAULT NULL,
-  `enrollDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `enrollDate` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,7 +103,7 @@ INSERT INTO `courseenrolls` (`id`, `studentRegno`, `pincode`, `session`, `depart
 CREATE TABLE `department` (
   `id` int(11) NOT NULL,
   `department` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `creationDate` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -114,11 +111,32 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`id`, `department`, `creationDate`) VALUES
-(1, 'Account', '2017-02-09 18:52:00'),
-(2, 'HR', '2017-02-09 18:52:04'),
-(3, 'Admin', '2017-02-09 18:52:08'),
-(5, 'Test', '2017-02-09 18:55:08'),
-(7, 'IT', '2018-05-21 10:03:15');
+(9, 'Hindi', '2020-10-26 04:08:59'),
+(11, 'Marathi', '2020-10-26 04:09:11'),
+(12, 'Science', '2020-10-26 04:09:32'),
+(13, 'Social Studies', '2020-10-26 04:09:42'),
+(14, 'Physical Training', '2020-10-26 04:10:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `code` varchar(6) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `gender` varchar(15) NOT NULL,
+  `phonenum` varchar(10) NOT NULL,
+  `courseName` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`code`, `name`, `gender`, `phonenum`, `courseName`) VALUES
+('f101', 'suresh', 'male', '897558178', 'eng');
 
 -- --------------------------------------------------------
 
@@ -129,7 +147,7 @@ INSERT INTO `department` (`id`, `department`, `creationDate`) VALUES
 CREATE TABLE `level` (
   `id` int(11) NOT NULL,
   `level` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `creationDate` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -150,7 +168,7 @@ INSERT INTO `level` (`id`, `level`, `creationDate`) VALUES
 CREATE TABLE `semester` (
   `id` int(11) NOT NULL,
   `semester` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,9 +177,12 @@ CREATE TABLE `semester` (
 --
 
 INSERT INTO `semester` (`id`, `semester`, `creationDate`, `updationDate`) VALUES
-(4, 'Second sem', '2017-02-09 18:47:59', ''),
-(5, 'Third Sem', '2017-02-09 18:48:04', ''),
-(6, 'Fourth Sem', '2018-05-21 10:02:56', '');
+(8, 'Grade 1 SEM 1', '2020-10-26 04:01:30', NULL),
+(9, 'Grade 1 SEM 2', '2020-10-26 04:01:40', NULL),
+(10, 'Grade 2 SEM 1', '2020-10-26 04:01:48', NULL),
+(11, 'Grade 2 SEM 2', '2020-10-26 04:01:57', NULL),
+(13, 'Grade 3 SEM 1', '2020-10-26 04:02:35', NULL),
+(14, 'Grade 3 SEM 2', '2020-10-26 04:02:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,7 +193,7 @@ INSERT INTO `semester` (`id`, `semester`, `creationDate`, `updationDate`) VALUES
 CREATE TABLE `session` (
   `id` int(11) NOT NULL,
   `session` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `creationDate` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -201,7 +222,7 @@ CREATE TABLE `students` (
   `department` varchar(255) DEFAULT NULL,
   `semester` varchar(255) DEFAULT NULL,
   `cgpa` decimal(10,2) DEFAULT NULL,
-  `creationdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationdate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -224,7 +245,7 @@ CREATE TABLE `userlog` (
   `id` int(11) NOT NULL,
   `studentRegno` varchar(255) DEFAULT NULL,
   `userip` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `loginTime` timestamp NULL DEFAULT current_timestamp(),
   `logout` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -249,7 +270,9 @@ INSERT INTO `userlog` (`id`, `studentRegno`, `userip`, `loginTime`, `logout`, `s
 (13, '10806121', 0x3a3a3100000000000000000000000000, '2017-02-12 06:20:23', '12-02-2017 12:09:59 PM', 1),
 (14, '10806121', 0x3a3a3100000000000000000000000000, '2018-05-21 09:49:06', '21-05-2018 03:30:53 PM', 1),
 (15, '10806121', 0x3a3a3100000000000000000000000000, '2018-05-21 10:19:15', '', 1),
-(16, '12345', 0x3a3a3100000000000000000000000000, '2018-08-25 05:51:42', '25-08-2018 11:23:02 AM', 1);
+(16, '12345', 0x3a3a3100000000000000000000000000, '2018-08-25 05:51:42', '25-08-2018 11:23:02 AM', 1),
+(17, '10806121', 0x3a3a3100000000000000000000000000, '2020-10-26 03:49:21', NULL, 1),
+(18, '10806121', 0x3a3a3100000000000000000000000000, '2020-11-01 13:51:02', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -265,7 +288,8 @@ ALTER TABLE `admin`
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `dept_id` (`dept_id`);
 
 --
 -- Indexes for table `courseenrolls`
@@ -278,6 +302,12 @@ ALTER TABLE `courseenrolls`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faculty`
+--
+ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`code`);
 
 --
 -- Indexes for table `level`
@@ -323,7 +353,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `courseenrolls`
@@ -335,7 +365,7 @@ ALTER TABLE `courseenrolls`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -347,7 +377,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `semester`
 --
 ALTER TABLE `semester`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `session`
@@ -359,7 +389,17 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `course`
+--
+ALTER TABLE `course`
+  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`dept_id`) REFERENCES `department` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -17,8 +17,7 @@ $dept=$_POST['department'];
 $level=$_POST['level'];
 $course=$_POST['course'];
 $sem=$_POST['sem'];
-$ret=mysqli_query($con,"insert into courseenrolls(studentRegno,pincode,session,department,level,course,semester) 
-        values('$studentregno','$pincode','$session','$dept','$level','$course','$sem')");
+$ret=mysqli_query($con,"insert into courseenrolls(studentRegno,pincode,session,department,level,course,semester) values('$studentregno','$pincode','$session','$dept','$level','$course','$sem')");
 if($ret)
 {
 $_SESSION['msg']="Enroll Successfully !!";
@@ -114,7 +113,7 @@ while($row=mysqli_fetch_array($sql))
 <?php } ?>
 
     </select> 
-  </div>
+  </div> 
 
 
 

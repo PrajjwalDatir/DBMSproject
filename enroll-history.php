@@ -67,15 +67,7 @@ else{
                                     </thead>
                                     <tbody>
 <?php
-$sql=mysqli_query($con,"select courseenrolls.course as cid, 
-        course.courseName as courname,session.session as session,department.department as dept,
-        level.level as level,courseenrolls.enrollDate as edate ,semester.semester as sem from courseenrolls
-        join course on course.id=courseenrolls.course 
-        join session on session.id=courseenrolls.session 
-        join department on department.id=courseenrolls.department 
-        join level on level.id=courseenrolls.level  
-        join semester on semester.id=courseenrolls.semester  
-        where courseenrolls.studentRegno='".$_SESSION['login']."'");
+$sql=mysqli_query($con,"select courseenrolls.course as cid, course.courseName as courname,session.session as session,department.department as dept,level.level as level,courseenrolls.enrollDate as edate ,semester.semester as sem from courseenrolls join course on course.id=courseenrolls.course join session on session.id=courseenrolls.session join department on department.id=courseenrolls.department join level on level.id=courseenrolls.level  join semester on semester.id=courseenrolls.semester  where courseenrolls.studentRegno='".$_SESSION['login']."'");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {

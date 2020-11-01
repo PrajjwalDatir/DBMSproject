@@ -4,20 +4,15 @@ error_reporting(0);
 include("includes/config.php");
 if(isset($_POST['submit']))
 {
-    $regno=$_POST['regno'];
+    $username=$_POST['username'];
     $password=md5($_POST['password']);
-$query=mysqli_query($con,"SELECT * FROM students WHERE StudentRegno='$regno' and password='$password'");
-// echo "$query";
+$query=mysqli_query($con,"SELECT * FROM admin WHERE username='$username' and password='$password'");
 $num=mysqli_fetch_array($query);
 if($num>0)
 {
 $extra="change-password.php";//
-$_SESSION['login']=$_POST['regno'];
-$_SESSION['id']=$num['studentRegno'];
-$_SESSION['sname']=$num['studentName'];
-$uip=$_SERVER['REMOTE_ADDR'];
-$status=1;
-$log=mysqli_query($con,"insert into userlog(studentRegno,userip,status) values('".$_SESSION['login']."','$uip','$status')");
+$_SESSION['alogin']=$_POST['username'];
+$_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -25,7 +20,7 @@ exit();
 }
 else
 {
-$_SESSION['errmsg']="Invalid Reg no or Password";
+$_SESSION['errmsg']="Invalid username or password";
 $extra="index.php";
 $host  = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
@@ -43,7 +38,7 @@ exit();
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Student Login</title>
+    <title>Admin Login</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
@@ -59,25 +54,22 @@ exit();
                 </div>
 
             </div>
-             <span style="color:red;" >
-             <?php echo htmlentities($_SESSION['errmsg']); ?>
-             <?php echo htmlentities($_SESSION['errmsg']="");?>
-             </span>
+             <span style="color:red;" ><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg']="");?></span>
             <form name="admin" method="post">
             <div class="row">
                 <div class="col-md-6">
-                     <label>Enter Reg no : </label>
-                        <input type="text" name="regno" class="form-control"  />
+                     <label>Enter Username : </label>
+                        <input type="text" name="username" class="form-control" required />
                         <label>Enter Password :  </label>
-                        <input type="password" name="password" class="form-control"  />
+                        <input type="password" name="password" class="form-control" required />
                         <hr />
                         <button type="submit" name="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </button>&nbsp;
                 </div>
                 </form>
                 <div class="col-md-6">
                     <div class="alert alert-info">
-                        This is a free bootstrap admin template with basic pages you need to craft your project. 
-                        Use this template for free to use for personal and commercial use.
+                        Welcome to the Admin Panel of Primary School. 
+                        This panel helps you manage your school effectively.
                         <br />
                          <strong> Some of its features are given below :</strong>
                         <ul>
@@ -88,7 +80,7 @@ exit();
                                 Easy to use and customize
                             </li>
                             <li>
-                                Font awesome icons included
+                                Administration Friendly.
                             </li>
                             <li>
                                 Clean and light code used.

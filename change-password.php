@@ -15,7 +15,6 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
 {
 $sql=mysqli_query($con,"SELECT password FROM  students where password='".md5($_POST['cpass'])."' && studentRegno='".$_SESSION['login']."'");
-// echo "$sql";
 $num=mysqli_fetch_array($sql);
 if($num>0)
 {
@@ -94,10 +93,7 @@ return true;
                         <div class="panel-heading">
                            Change Password
                         </div>
-<font color="green" align="center">
-<?php echo htmlentities($_SESSION['msg']);?>
-<?php echo htmlentities($_SESSION['msg']="");?>
-</font>
+<font color="green" align="center"><?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?></font>
 
 
                         <div class="panel-body">
