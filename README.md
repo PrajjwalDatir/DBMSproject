@@ -1,4 +1,4 @@
-# Real Time Online Primary School Management
+## Real Time Online Primary School Management
 
 The main idea behind the project was to create a management application, where faculties and students 
 can do their respective work effeciently. Unlike the Traditional way of storing student's record on 
@@ -15,7 +15,7 @@ Abhishek Rai 141903013
 - PHP for backend
 - MYSQL database
  
-##Admin panel Features
+### Admin panel Features
 - Maintain a centralized Admin control
 - Add/Delete sessions
 - Keep track of all the semesters in which students are currently enrolled
@@ -25,18 +25,18 @@ Abhishek Rai 141903013
 - Check the new admisssion students
 - Kepping a track of student's activities
 
-##Student Panel
+### Student Panel
 - Can Login to their respective accounts
 - Enroll to different Courses
 - Access and modify profile
 - Change password
 
-##How is it different from other School Management applications?
+### How is it different from other School Management applications?
 - We mainly focus on management of school activities, by making it easy and flexible for the administration to work on, unlike other application which is sometimes
 complicated to be used by administration who are not technically sound.
 
 
-##Installation Steps(Configuration) for github :-
+### Installation Steps(Configuration) for github :-
 
 1. Download and Unzip file on your local system and rename it as onlinecourse.
 
@@ -44,22 +44,22 @@ complicated to be used by administration who are not technically sound.
 
 3. Database Configuration
 
-- Open phpmyadmin
+ - Open phpmyadmin
 
-- Create Database onlinecourse
+ - Create Database onlinecourse
 
-- Import database onlinecourse.sql (available inside zip package)
+ - Import database onlinecourse.sql (available inside zip package)
 
-- Open Your browser put inside browser http://localhost/onlinecourse
+ - Open Your browser put inside browser http://localhost/onlinecourse
 
-- Login Details
+ - Login Details
 
-- To Login as admin put inside browser http://localhost/onlinecourse/admin
+ - To Login as admin put inside browser http://localhost/onlinecourse/admin
 
-- Login Details for admin : admin/Test@123
+ - Login Details for admin : admin/Test@123
 
-- To Login as Student put inside browser http://localhost/onlinecourse/
+ - To Login as Student put inside browser http://localhost/onlinecourse/
 
-- Login Details for Student: 10806121/Test@123
+ - Login Details for Student: 10806121/Test@123
 
-- Student Pincode for enroll Course Student: 715948
+ - Student Pincode for enroll Course Student: 715948
