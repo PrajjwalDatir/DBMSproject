@@ -5,6 +5,8 @@ can do their respective work effeciently. Unlike the Traditional way of storing 
 registers and manual files, we tried to make it digital and address all the problems faced by students 
 and school administration in maintaing important records.
 
+![student login](https://user-images.githubusercontent.com/40266955/98436464-8bdafa80-2101-11eb-911a-140611c2d82d.PNG)
+
 **Members**
 
 -Abhishek Rai 141903013
