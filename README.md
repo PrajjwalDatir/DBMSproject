@@ -5,12 +5,10 @@ can do their respective work effeciently. Unlike the Traditional way of storing 
 registers and manual files, we tried to make it digital and address all the problems faced by students 
 and school administration in maintaing important records.
 
-![student login](https://user-images.githubusercontent.com/40266955/98436464-8bdafa80-2101-11eb-911a-140611c2d82d.PNG)
-
 **Members**
 
--Abhishek Rai 141903013
--Prajjwal Datir 111803131
+- Abhishek Rai 141903013
+- Prajjwal Datir 111803131
 
 **Tech Stack Used**
 
@@ -28,11 +26,15 @@ and school administration in maintaing important records.
 - Check the new admisssion students
 - Kepping a track of student's activities
 
+![admin panel](https://user-images.githubusercontent.com/40266955/98436555-4bc84780-2102-11eb-8b7e-60670ce874c3.PNG)
+
 ### Student Panel
 - Can Login to their respective accounts
 - Enroll to different Courses
 - Access and modify profile
 - Change password
+
+![student login](https://user-images.githubusercontent.com/40266955/98436464-8bdafa80-2101-11eb-911a-140611c2d82d.PNG)
 
 ### How is it different from other School Management applications?
 - We mainly focus on management of school activities, by making it easy and flexible for the administration to work on, unlike other application which is sometimes
