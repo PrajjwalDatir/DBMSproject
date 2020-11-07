@@ -68,3 +68,7 @@ complicated to be used by administration who are not technically sound.
  - Login Details for Student: 10806121/Test@123
 
  - Student Pincode for enroll Course Student: 715948
+
+<!-- ### More Screenshots: -->
+
+<!-- - ![AdminPanel](./images/admin\ panel.PNG) -->
