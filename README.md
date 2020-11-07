@@ -7,8 +7,8 @@ and school administration in maintaing important records.
 
 **Members**
 
-Abhishek Rai 141903013
-Prajjwal Datir 111803131
+-Abhishek Rai 141903013
+-Prajjwal Datir 111803131
 
 **Tech Stack Used**
 
