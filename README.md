@@ -5,7 +5,7 @@ can do their respective work effeciently. Unlike the Traditional way of storing 
 registers and manual files, we tried to make it digital and address all the problems faced by students 
 and school administration in maintaing important records.
 
-**Members*
+**Members**
 Prajjwal Datir 111803131
 Abhishek Rai 141903013
 
@@ -15,7 +15,7 @@ Abhishek Rai 141903013
 - PHP for backend
 - MYSQL database
  
-###Admin panel Features
+##Admin panel Features
 - Maintain a centralized Admin control
 - Add/Delete sessions
 - Keep track of all the semesters in which students are currently enrolled
@@ -25,26 +25,24 @@ Abhishek Rai 141903013
 - Check the new admisssion students
 - Kepping a track of student's activities
 
-###Student Panel
+##Student Panel
 - Can Login to their respective accounts
 - Enroll to different Courses
 - Access and modify profile
 - Change password
 
-###How is it different from other School Management applications?
+##How is it different from other School Management applications?
 - We mainly focus on management of school activities, by making it easy and flexible for the administration to work on, unlike other application which is sometimes
 complicated to be used by administration who are not technically sound.
 
 
-###Installation Steps(Configuration) for github :-
+##Installation Steps(Configuration) for github :-
 
 1. Download and Unzip file on your local system and rename it as onlinecourse.
 
 2. Put this file inside root directory
 
 3. Database Configuration
-
-- Database Configuration
 
 - Open phpmyadmin
 
