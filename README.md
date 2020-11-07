@@ -1,32 +1,47 @@
-# Primary School management using PHP & Mysql
-
-Prajjwal Datir 111803131
-Abhishek Rai 141903013
+## Real Time Online Primary School Management
 
 The main idea behind the project was to create a management application, where faculties and students 
-can do their respective work effeciently.
+can do their respective work effeciently. Unlike the Traditional way of storing student's record on 
+registers and manual files, we tried to make it digital and address all the problems faced by students 
+and school administration in maintaing important records.
 
-The project contains two panels:-
+**Members**
 
-1)Admin Planel - 
-A centralized, easy to use and time utilization panel which focusses on functionalities like adding/deleting sessions, keeping a track on semester, department, different records of courses, registering students, enroll history and student logs.
+- Abhishek Rai 141903013
+- Prajjwal Datir 111803131
 
-2)Student Panel - 
-Students can log into their respective accounts and enroll to different courses, access their profile and change password if required.
+**Tech Stack Used**
 
-Unlike the Traditional way of storing student's record on registers and manual files, we tried to
-make it digital and address all the problems faced by students and school administration.
+- HTML, CSS & Bootstrap
+- PHP for backend
+- MYSQL database
+ 
+### Admin panel Features
+- Maintain a centralized Admin control
+- Add/Delete sessions
+- Keep track of all the semesters in which students are currently enrolled
+- Easier access to Department related activities
+- Add/Delete courses, access information about all students currently enrolled and check their respective grades.
+- Register new students
+- Check the new admisssion students
+- Kepping a track of student's activities
 
-Technology used:-
+![admin panel](https://user-images.githubusercontent.com/40266955/98436555-4bc84780-2102-11eb-8b7e-60670ce874c3.PNG)
 
-We have used PHP for the backend and also MySql for the database creation and manupulation. We have 
-designed front end using templates and the Bootstrap, Html and CSS.
+### Student Panel
+- Can Login to their respective accounts
+- Enroll to different Courses
+- Access and modify profile
+- Change password
 
-Primary School Management Project solve the problems and provides flexibility, less cost, faster access to records and better management of School's important work.
+![student login](https://user-images.githubusercontent.com/40266955/98436464-8bdafa80-2101-11eb-911a-140611c2d82d.PNG)
 
-Project by Abhishek Rai & Prajjwal Dattir
+### How is it different from other School Management applications?
+- We mainly focus on management of school activities, by making it easy and flexible for the administration to work on, unlike other application which is sometimes
+complicated to be used by administration who are not technically sound.
 
-Installation Steps(Configuration) for github :-
+
+### Installation Steps(Configuration) for github :-
 
 1. Download and Unzip file on your local system and rename it as onlinecourse.
 
@@ -34,24 +49,22 @@ Installation Steps(Configuration) for github :-
 
 3. Database Configuration
 
-Database Configuration
+ - Open phpmyadmin
 
-Open phpmyadmin
+ - Create Database onlinecourse
 
-Create Database onlinecourse
+ - Import database onlinecourse.sql (available inside zip package)
 
-Import database onlinecourse.sql (available inside zip package)
+ - Open Your browser put inside browser http://localhost/onlinecourse
 
-Open Your browser put inside browser http://localhost/onlinecourse
+4 Login Details
 
-Login Details
+ - To Login as admin put inside browser http://localhost/onlinecourse/admin
 
-To Login as admin put inside browser http://localhost/onlinecourse/admin
+ - Login Details for admin : admin/Test@123
 
-Login Details for admin : admin/Test@123
+ - To Login as Student put inside browser http://localhost/onlinecourse/
 
-To Login as Student put inside browser http://localhost/onlinecourse/
+ - Login Details for Student: 10806121/Test@123
 
-Login Details for Student: 10806121/Test@123
-
-Student Pincode for enroll Course Student: 715948
+ - Student Pincode for enroll Course Student: 715948
