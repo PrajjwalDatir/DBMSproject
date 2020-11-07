@@ -52,7 +52,7 @@ complicated to be used by administration who are not technically sound.
 
  - Open Your browser put inside browser http://localhost/onlinecourse
 
- - Login Details
+4 Login Details
 
  - To Login as admin put inside browser http://localhost/onlinecourse/admin
 
